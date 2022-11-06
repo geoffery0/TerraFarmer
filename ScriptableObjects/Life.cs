@@ -4,22 +4,21 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
     [CreateAssetMenu]
-public class TileData : ScriptableObject
+public class Life : ScriptableObject
 {
+    public TileBase tile;
 
-    public TileBase[] tiles;
+    public int hungry;
 
-    public Life occupied;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         
     }
 }

@@ -9,10 +9,15 @@ public class TileManager : MonoBehaviour
     private Tilemap map;
 
     [SerializeField]
+    private Tilemap life;
+
+    [SerializeField]
     private List<TileData> TileDatas;
 
+    [SerializeField]
+    private List<Life> Lifes;
+
     private Dictionary<TileBase, TileData> dataFromTiles;
-    // Start is called before the first frame update
 
     void Awake()
     {
@@ -37,23 +42,23 @@ public class TileManager : MonoBehaviour
             
             TileBase clickedTile = map.GetTile(gridPosition);
 
-            int occupied = dataFromTiles[clickedTile].occupied;
+            Life occupied = dataFromTiles[clickedTile].occupied;
 
 
-            print( clickedTile + " is occupied by " + occupied);
+            life.SetTile(gridPosition,occupied.tile);
         }
     }
 
-    public int getTileOccupied(Vector2 worldPosition){
+    public Life getTileOccupied(Vector2 worldPosition){
         Vector3Int gridposition = map.WorldToCell(worldPosition);
 
         TileBase tile = map.GetTile(gridposition);
 
         if(tile == null){
-            return 0;
+            return null;
         }
 
-        int occupied  = dataFromTiles[tile].occupied;
+        Life occupied  = dataFromTiles[tile].occupied;
 
         return occupied;
     }

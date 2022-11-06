@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: GrassTileData
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: d81ffa1bfd642427d90edb68720d159a, type: 2}
-  ocuppied: 0
+  - {fileID: 11400000, guid: 4197b7f23e6066441820884782e4655a, type: 2}
+  - {fileID: 11400000, guid: ebeef7839d6db764bb6d133b91f9bc4b, type: 2}
+  occupied: {fileID: 11400000, guid: 62c685b27e8d3a4458bf4b862b59b4e3, type: 2}

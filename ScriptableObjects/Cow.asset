@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b2c347c46e0794ab5fab27c66698af, type: 3}
-  m_Name: SandTileData
+  m_Script: {fileID: 11500000, guid: 850e686aedae1d34da67b8a1dde50225, type: 3}
+  m_Name: Cow
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 11400000, guid: 98a0a8f6c76331a4db4171d29111a7fd, type: 2}
-  - {fileID: 11400000, guid: 7fa31074bd9650446a7a005e22ac5fa1, type: 2}
-  occupied: {fileID: 0}
+  tile: {fileID: 11400000, guid: 8d83b85562f47544b903a7042b7feafd, type: 2}
+  hungry: 0
