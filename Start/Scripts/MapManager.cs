@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class MapManager : MonoBehaviour
 {
+   
+
     private static MapManager _instance;
     private static MapManager Instance;
 
@@ -82,6 +84,7 @@ public class MapManager : MonoBehaviour
         {
             onRegenerate();
         }
+        
     }
 
     void onRegenerate()
