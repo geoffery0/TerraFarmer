@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587db70c79c75984686d24a77f6ddc76, type: 3}
   m_Name: Cow 1
   m_EditorClassIdentifier: 
-  tile: {fileID: 0}
+  tile: {fileID: 11400000, guid: 8d83b85562f47544b903a7042b7feafd, type: 2}
   named: 
   age: 0
   hunger: 0

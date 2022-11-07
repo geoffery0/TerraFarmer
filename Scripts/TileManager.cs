@@ -63,7 +63,7 @@ public class TileManager : MonoBehaviour
             
             TileBase clickedTile = map.GetTile(gridPosition);
 
-            if(lifeOnTile[gridPosition] == null){
+            if(lifeOnTile[gridPosition] == null && dataFromTiles[clickedTile].arable){
                 lifeOnTile[gridPosition] = Object.Instantiate(Lifes[2]);
             }
             
