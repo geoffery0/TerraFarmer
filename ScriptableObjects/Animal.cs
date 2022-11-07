@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
     [CreateAssetMenu]
-public class TileData : ScriptableObject
+public class Animal : Life
 {
-
-    public TileBase[] tiles;
-
-    public bool arable;
+    public string named;
+    public int age;
+    public int hunger;
+    public readonly int bred;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +18,6 @@ public class TileData : ScriptableObject
     // Update is called once per frame
     void Update()
     {
-        
         
     }
 }

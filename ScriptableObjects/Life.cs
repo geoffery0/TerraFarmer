@@ -8,7 +8,7 @@ public class Life : ScriptableObject
 {
     public TileBase tile;
 
-    public int hungry;
+
 
     // Start is called before the first frame update
     void Start()
