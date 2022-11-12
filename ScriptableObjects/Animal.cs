@@ -20,7 +20,7 @@ public class Animal : Life
             age+=1;
             onFeedAnimal?.Invoke(hunger);
             
-            if ((tile.Length - 1 - age)%2 == 0 && age >= tile.Length)
+            if ((tile.Length - 1 - age)%2 == 0 && age >= tile.Length-1)
             {
                 onHarvestAnimal?.Invoke(this);
 

@@ -17,6 +17,9 @@ public class TileManager : MonoBehaviour
     [SerializeField]
     private List<Life> Lifes;
 
+    [SerializeField]
+    private TileBase Arable;
+
     private Dictionary<TileBase, TileData> dataFromTiles;
     private Dictionary<Vector3Int, Life> lifeOnTile;
 
@@ -76,6 +79,11 @@ public class TileManager : MonoBehaviour
 
             
             TileBase clickedTile = map.GetTile(gridPosition);
+
+            if(!dataFromTiles[clickedTile].arable && GameManager.energy>=60){
+                map.SetTile(gridPosition,Arable);
+                GameManager.energy -= 60;
+            }
 
             if(lifeOnTile[gridPosition] == null && dataFromTiles[clickedTile].arable){
                 selectedTile = gridPosition;
