@@ -1,23 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
     [CreateAssetMenu]
 public class Animal : Life
 {
     public string named;
-    public int age;
+    
     public int hunger;
     public readonly int bred;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public static event UnityAction<Life> onHarvestAnimal;
+    public static event UnityAction<int> onFeedAnimal;
+
+    public void harvest()
     {
-        
+        if(GameManager.food >= hunger){
+            age+=1;
+            onFeedAnimal?.Invoke(hunger);
+            
+            if ((tile.Length - 1 - age)%2 == 0 && age >= tile.Length)
+            {
+                onHarvestAnimal?.Invoke(this);
+
+            }
+        }
     }
 }

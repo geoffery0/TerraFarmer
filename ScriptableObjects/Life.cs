@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
     [CreateAssetMenu]
-public class Life : ScriptableObject
+public abstract class Life : ScriptableObject
 {
-    public TileBase tile;
+    public TileBase[] tile;
+    public int age;
+    public int energyReturn;
+    public int ID;
 
 
 
@@ -21,4 +24,5 @@ public class Life : ScriptableObject
     {
         
     }
+
 }

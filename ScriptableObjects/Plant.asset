@@ -9,8 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 850e686aedae1d34da67b8a1dde50225, type: 3}
+  m_Script: {fileID: 11500000, guid: d62f5790bf76faf4aa8836b346f8c923, type: 3}
   m_Name: Plant
   m_EditorClassIdentifier: 
-  tile: {fileID: 11400000, guid: 88ac75282bbd5bd4e820ede2e5460351, type: 2}
-  hungry: 0
+  tile:
+  - {fileID: 11400000, guid: 937b59bdd141f35478bb3c1dcad46e94, type: 2}
+  - {fileID: 11400000, guid: e8eb89fd497982249a54d4692482c497, type: 2}
+  - {fileID: 11400000, guid: 4cfe459cc7a956c4195f03f7faea53bd, type: 2}
+  - {fileID: 11400000, guid: 88ac75282bbd5bd4e820ede2e5460351, type: 2}
+  age: 0
+  energyReturn: 20
+  ID: 1
