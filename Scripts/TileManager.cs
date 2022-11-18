@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.Events;
 
 public class TileManager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class TileManager : MonoBehaviour
     private Dictionary<Vector3Int, Life> lifeOnTile;
 
     private Vector3Int selectedTile;
+
+    public static event UnityAction<int> onCleanse;
 
     void Awake()
     {
@@ -82,7 +85,7 @@ public class TileManager : MonoBehaviour
 
             if(!dataFromTiles[clickedTile].arable && GameManager.energy>=60){
                 map.SetTile(gridPosition,Arable);
-                GameManager.energy -= 60;
+                onCleanse?.Invoke(60);
             }
 
             if(lifeOnTile[gridPosition] == null && dataFromTiles[clickedTile].arable){

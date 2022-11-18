@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         Plant.onHarvestCrop += OnHarvestCrop;
         Animal.onHarvestAnimal += OnHarvestAnimal;
         Animal.onFeedAnimal += onFeedAnimal;
+        TileManager.onCleanse += onCleanse;
     }
 
     void OnDisable()
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         Plant.onHarvestCrop -= OnHarvestCrop;
         Animal.onHarvestAnimal -= OnHarvestAnimal;
         Animal.onFeedAnimal -= onFeedAnimal;
+        TileManager.onCleanse -= onCleanse;
     }
 
     // Update is called once per frame
@@ -72,5 +74,10 @@ public class GameManager : MonoBehaviour
 
     public void popUpFalse(){
         popup = false;
+    }
+
+    public void onCleanse(int cost){
+        energy -= cost;
+        display();
     }
 }
