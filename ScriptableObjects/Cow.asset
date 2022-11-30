@@ -16,10 +16,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c9e773820a7f4d7459087421dbafcf8e, type: 2}
   - {fileID: 11400000, guid: c9e773820a7f4d7459087421dbafcf8e, type: 2}
   - {fileID: 11400000, guid: c9e773820a7f4d7459087421dbafcf8e, type: 2}
-  - {fileID: 11400000, guid: c9e773820a7f4d7459087421dbafcf8e, type: 2}
   - {fileID: 11400000, guid: 8d83b85562f47544b903a7042b7feafd, type: 2}
   age: 0
   energyReturn: 70
   ID: 0
   named: 
-  hunger: 2
+  hunger: 1
+  fav: 5
+  produce: 4
+  quantity: 1

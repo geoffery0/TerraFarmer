@@ -10,15 +10,19 @@ public class Animal : Life
     
     public int hunger;
     public readonly int bred;
+    public int fav;
 
-    public static event UnityAction<Life> onHarvestAnimal;
-    public static event UnityAction<int> onFeedAnimal;
+    public int produce;
+    public int quantity;
+
+    public static event UnityAction<Animal> onHarvestAnimal;
+    public static event UnityAction<int,int> onFeedAnimal;
 
     public void harvest()
     {
-        if(GameManager.food >= hunger){
+        if(GameManager.instance.life[fav] >= hunger){
             age+=1;
-            onFeedAnimal?.Invoke(hunger);
+            onFeedAnimal?.Invoke(hunger,fav);
             
             if ((tile.Length - 1 - age)%2 == 0 && age >= tile.Length-1)
             {

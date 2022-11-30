@@ -6,8 +6,11 @@ using UnityEngine.Events;
 [CreateAssetMenu]
 public class Plant : Life
 {
-    public static event UnityAction<Life> onHarvestCrop;
+    public static event UnityAction<Plant> onHarvestCrop;
     public static event UnityAction<Vector3Int> destroyCrop;
+
+    public int food;
+    public int reap;
     
     public void harvest(Vector3Int crop){
         if(age==tile.Length){

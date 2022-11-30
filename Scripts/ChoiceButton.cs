@@ -14,6 +14,7 @@ public class ChoiceButton : MonoBehaviour
     }
     
     private void OnMouseUp() {
+        
         buttonClick.Invoke();
     }
 }

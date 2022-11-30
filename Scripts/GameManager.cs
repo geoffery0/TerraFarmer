@@ -49,27 +49,30 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void OnHarvestCrop(Life crop)
+    public void OnHarvestCrop(Plant crop)
     {
         energy += crop.energyReturn;
         
         life[crop.ID] +=2;
-        food += 1;
+        life[crop.reap] += crop.food;
         display();
     }
 
-    public void OnHarvestAnimal(Life animal){
+    public void OnHarvestAnimal(Animal animal){
         energy += animal.energyReturn;
+        life[animal.produce] += animal.quantity;
         display();
     }
 
     private void display(){
-        energyDisplay.text = "Energy: " + energy + "\nFood: " + food;
+        energyDisplay.text = "Energy: " + energy;
     }
 
-    public void onFeedAnimal(int hunger){
-        food-= hunger;
-        display();
+    public void onFeedAnimal(int hunger,int fav){
+        if(life[fav]>=hunger){
+            life[fav] -= hunger;
+        }
+        
     }
 
     public void popUpFalse(){

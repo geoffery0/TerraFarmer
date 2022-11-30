@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587db70c79c75984686d24a77f6ddc76, type: 3}
+  m_Name: Bison
+  m_EditorClassIdentifier: 
+  tile:
+  - {fileID: 11400000, guid: 7b583b56649326845a91f987d1119eaf, type: 2}
+  - {fileID: 11400000, guid: 7b583b56649326845a91f987d1119eaf, type: 2}
+  - {fileID: 11400000, guid: 7b583b56649326845a91f987d1119eaf, type: 2}
+  - {fileID: 11400000, guid: 7b583b56649326845a91f987d1119eaf, type: 2}
+  - {fileID: 11400000, guid: 7b583b56649326845a91f987d1119eaf, type: 2}
+  - {fileID: 11400000, guid: c0900d77ce58a8d4ba401d53c20fe3ff, type: 2}
+  age: 0
+  energyReturn: 140
+  ID: 2
+  named: 
+  hunger: 1
+  fav: 4
+  produce: 0
+  quantity: 0

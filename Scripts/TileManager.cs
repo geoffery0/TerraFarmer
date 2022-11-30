@@ -62,12 +62,13 @@ public class TileManager : MonoBehaviour
 
     void OnEnable()
     {
-
+        Select.createTileLife += createTileLife;
         Plant.destroyCrop +=destroyCrop;
     }
 
     void OnDisable()
     {
+        Select.createTileLife -= createTileLife;
         Plant.destroyCrop -=destroyCrop;
     }
 
@@ -90,8 +91,8 @@ public class TileManager : MonoBehaviour
 
             if(lifeOnTile[gridPosition] == null && dataFromTiles[clickedTile].arable){
                 selectedTile = gridPosition;
-                PopupSystem pop = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PopupSystem>();
-                pop.PopUp();
+                //PopupSystem pop = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PopupSystem>();
+                //pop.PopUp();
                 
             }
 
@@ -134,7 +135,7 @@ public class TileManager : MonoBehaviour
     }
 
     public void createTileLife(int choice){
-        if(GameManager.instance.life[choice] == 0){
+        if(GameManager.instance.life[choice] == 0 || selectedTile == null || lifeOnTile[selectedTile] != null){
             GameManager.popup = false;
             return;
         }

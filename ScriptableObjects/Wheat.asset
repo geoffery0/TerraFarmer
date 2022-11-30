@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d62f5790bf76faf4aa8836b346f8c923, type: 3}
-  m_Name: Plant
+  m_Name: Wheat
   m_EditorClassIdentifier: 
   tile:
-  - {fileID: 11400000, guid: 937b59bdd141f35478bb3c1dcad46e94, type: 2}
-  - {fileID: 11400000, guid: e8eb89fd497982249a54d4692482c497, type: 2}
-  - {fileID: 11400000, guid: 4cfe459cc7a956c4195f03f7faea53bd, type: 2}
-  - {fileID: 11400000, guid: 88ac75282bbd5bd4e820ede2e5460351, type: 2}
+  - {fileID: 11400000, guid: 422a0e3e0fb4c604abad4fc8c9d9c791, type: 2}
+  - {fileID: 11400000, guid: e37d161560e200c4786f29582e621786, type: 2}
+  - {fileID: 11400000, guid: 9b0e0ee9360c8a04cbdc5d9307bd5843, type: 2}
+  - {fileID: 11400000, guid: 3355b0cba880fd3459b28dab7f5a7366, type: 2}
   age: 0
-  energyReturn: 20
-  ID: 1
-  food: 0
-  reap: 1
+  energyReturn: 10
+  ID: 3
+  food: 1
+  reap: 5
