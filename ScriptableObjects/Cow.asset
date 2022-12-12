@@ -22,6 +22,6 @@ MonoBehaviour:
   ID: 0
   named: 
   hunger: 1
-  fav: 5
-  produce: 4
+  fav: 0
+  produce: 1
   quantity: 1

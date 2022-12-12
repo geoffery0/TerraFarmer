@@ -21,4 +21,4 @@ MonoBehaviour:
   energyReturn: 10
   ID: 3
   food: 1
-  reap: 5
+  reap: 0

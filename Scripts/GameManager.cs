@@ -8,10 +8,15 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
     public int[] life;
-    public static int food;
+    public int[] food;
+    public static int menu = 0;
     public static bool popup = false;
     public static int energy = 0;
     public TMP_Text energyDisplay;
+    public GameObject cropsMenu;
+    public GameObject foodMenu;
+    public TMP_Text buttonText;
+    
 
     private void Awake()
     {
@@ -23,7 +28,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        
+
     }
 
     void OnEnable()
@@ -54,13 +59,13 @@ public class GameManager : MonoBehaviour
         energy += crop.energyReturn;
         
         life[crop.ID] +=2;
-        life[crop.reap] += crop.food;
+        food[crop.reap] += crop.food;
         display();
     }
 
     public void OnHarvestAnimal(Animal animal){
         energy += animal.energyReturn;
-        life[animal.produce] += animal.quantity;
+        food[animal.produce] += animal.quantity;
         display();
     }
 
@@ -68,10 +73,8 @@ public class GameManager : MonoBehaviour
         energyDisplay.text = "Energy: " + energy;
     }
 
-    public void onFeedAnimal(int hunger,int fav){
-        if(life[fav]>=hunger){
-            life[fav] -= hunger;
-        }
+    public void onFeedAnimal(int hunger,int feed){
+        food[feed] -= hunger;
         
     }
 
@@ -82,5 +85,20 @@ public class GameManager : MonoBehaviour
     public void onCleanse(int cost){
         energy -= cost;
         display();
+    }
+
+    public void switchMenu(){
+        if(foodMenu.activeSelf){
+            foodMenu.SetActive(false);
+            cropsMenu.SetActive(true);
+            buttonText.text = "Crops";
+            menu = 1;
+        }
+        else{
+            foodMenu.SetActive(true);
+            cropsMenu.SetActive(false);
+            buttonText.text = "Food";
+            menu = 0;
+        }
     }
 }

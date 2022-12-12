@@ -25,6 +25,8 @@ public class TileManager : MonoBehaviour
     private Dictionary<Vector3Int, Life> lifeOnTile;
 
     private Vector3Int selectedTile;
+    private int selectedChoice = -1;
+    private FoodItem selectedFood = null;
 
     public static event UnityAction<int> onCleanse;
 
@@ -62,14 +64,16 @@ public class TileManager : MonoBehaviour
 
     void OnEnable()
     {
-        Select.createTileLife += createTileLife;
+        CropItem.createTileLife += createTileLife;
         Plant.destroyCrop +=destroyCrop;
+        FoodItem.feedTileLife += feedTileLife;
     }
 
     void OnDisable()
     {
-        Select.createTileLife -= createTileLife;
+        CropItem.createTileLife -= createTileLife;
         Plant.destroyCrop -=destroyCrop;
+        FoodItem.feedTileLife -= feedTileLife;
     }
 
 
@@ -89,10 +93,23 @@ public class TileManager : MonoBehaviour
                 onCleanse?.Invoke(60);
             }
 
-            if(lifeOnTile[gridPosition] == null && dataFromTiles[clickedTile].arable){
-                selectedTile = gridPosition;
-                //PopupSystem pop = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PopupSystem>();
-                //pop.PopUp();
+            if(lifeOnTile[gridPosition] == null && dataFromTiles[clickedTile].arable && selectedChoice != -1){
+
+                if (GameManager.instance.life[selectedChoice] == 0 || gridPosition == null || lifeOnTile[gridPosition] != null)
+                {
+                    GameManager.popup = false;
+                    return;
+                }
+                lifeOnTile[gridPosition] = Object.Instantiate(Lifes[selectedChoice]);
+
+                Life occupied = lifeOnTile[gridPosition];
+
+
+
+
+                life.SetTile(gridPosition, occupied.tile[0]);
+                GameManager.instance.life[selectedChoice] -= 1;
+                GameManager.popup = false;
                 
             }
 
@@ -106,10 +123,10 @@ public class TileManager : MonoBehaviour
                     Plant plant =(Plant)lifeOnTile[gridPosition];
                     plant.harvest(gridPosition);
                 }
-                else if (lifeOnTile[gridPosition] is Animal)
+                else if (lifeOnTile[gridPosition] is Animal && selectedFood!=null)
                 {
                     Animal animal = (Animal)lifeOnTile[gridPosition];
-                    animal.harvest();
+                    animal.harvest(selectedFood);
                 }
                 changeSprite(gridPosition);
             }
@@ -135,24 +152,12 @@ public class TileManager : MonoBehaviour
     }
 
     public void createTileLife(int choice){
-        if(GameManager.instance.life[choice] == 0 || selectedTile == null || lifeOnTile[selectedTile] != null){
-            GameManager.popup = false;
-            return;
-        }
-        lifeOnTile[selectedTile] = Object.Instantiate(Lifes[choice]);
-
-        Life occupied = lifeOnTile[selectedTile];
+        selectedChoice = choice;
         
-        
-        
-
-        life.SetTile(selectedTile, occupied.tile[0]);
-        GameManager.instance.life[choice]-=1;
-        GameManager.popup = false;
     }
 
     private void changeSprite(Vector3Int gridPosition){
-        if(lifeOnTile[gridPosition].age<lifeOnTile[gridPosition].tile.Length){
+        if(lifeOnTile[gridPosition].age<=lifeOnTile[gridPosition].tile.Length){
             life.SetTile(gridPosition, lifeOnTile[gridPosition].tile[lifeOnTile[gridPosition].age]);
         }
     }
@@ -160,5 +165,9 @@ public class TileManager : MonoBehaviour
     public void destroyCrop(Vector3Int crop){
         Destroy(lifeOnTile[crop]);
         life.SetTile(crop, null);
+    }
+
+    public void feedTileLife(FoodItem food){
+        selectedFood = food;
     }
 }

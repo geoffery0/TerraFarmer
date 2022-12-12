@@ -24,6 +24,7 @@ MonoBehaviour:
   ID: 2
   named: 
   hunger: 1
-  fav: 4
+  fav: 1
+  diet: 1
   produce: 0
   quantity: 0

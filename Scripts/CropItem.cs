@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using TMPro;
 
-public class Select : MonoBehaviour, IPointerClickHandler
+public class CropItem : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     private int type;
