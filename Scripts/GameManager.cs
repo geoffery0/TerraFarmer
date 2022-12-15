@@ -91,13 +91,13 @@ public class GameManager : MonoBehaviour
         if(foodMenu.activeSelf){
             foodMenu.SetActive(false);
             cropsMenu.SetActive(true);
-            buttonText.text = "Crops";
+            buttonText.text = "Food";
             menu = 1;
         }
         else{
             foodMenu.SetActive(true);
             cropsMenu.SetActive(false);
-            buttonText.text = "Food";
+            buttonText.text = "Crops";
             menu = 0;
         }
     }

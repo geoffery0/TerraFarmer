@@ -19,6 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b583b56649326845a91f987d1119eaf, type: 2}
   - {fileID: 11400000, guid: 7b583b56649326845a91f987d1119eaf, type: 2}
   - {fileID: 11400000, guid: c0900d77ce58a8d4ba401d53c20fe3ff, type: 2}
+  - {fileID: 11400000, guid: c0900d77ce58a8d4ba401d53c20fe3ff, type: 2}
   age: 0
   energyReturn: 140
   ID: 2
