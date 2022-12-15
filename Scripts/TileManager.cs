@@ -137,7 +137,7 @@ public class TileManager : MonoBehaviour
                 
             }
 
-            // This 
+            // This thing
             if(lifeOnTile[gridPosition] != null){
                 
                 
