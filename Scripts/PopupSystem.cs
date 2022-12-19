@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// NOT CURRENTLY USED
 public class PopupSystem : MonoBehaviour
 {
     public GameObject popUpBox;
     public Animator animator;
     public TMP_Text popUpCow;
     public TMP_Text popUpPlant;
-    // Next step add traits for both buttons and change text
+    
 
     public void PopUp(){
         popUpBox.SetActive(true);

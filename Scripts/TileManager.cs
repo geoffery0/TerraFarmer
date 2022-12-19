@@ -137,22 +137,28 @@ public class TileManager : MonoBehaviour
                 
             }
 
-            // This thing
+
+            // This block will do the age calculations
+            // For the future this is where we would put logic for animal menu and stats when clicking them
+
             if(lifeOnTile[gridPosition] != null){
                 
-                
+                // This is if the crop is a plant
                 if(lifeOnTile[gridPosition] is Plant){
                     Life occupied = lifeOnTile[gridPosition];
+                    // Just ages it, we can put this logic in the plant class and add a watering mechanic or something( Fertilizer)
                     occupied.age += 1;
                     print("This " + occupied + " is " + occupied.age);
                     Plant plant =(Plant)lifeOnTile[gridPosition];
                     plant.harvest(gridPosition);
                 }
+                // This is the logic for animal, this is purely logic in the animal class, maybe we can put the .harvest function in the Life class and overload it instead
                 else if (lifeOnTile[gridPosition] is Animal && selectedFood!=null)
                 {
                     Animal animal = (Animal)lifeOnTile[gridPosition];
                     animal.harvest(selectedFood);
                 }
+                // Changes sprite if valid
                 changeSprite(gridPosition);
             }
             
@@ -162,6 +168,8 @@ public class TileManager : MonoBehaviour
         }
     }
 
+    // Not used right now but if we wanted to call an event that returned the Life on that tile it could be useful
+    // Could be used when calling a menu or info popup
     public Life getTileLife(Vector2 worldPosition){
         Vector3Int gridPosition = map.WorldToCell(worldPosition);
 
@@ -176,22 +184,28 @@ public class TileManager : MonoBehaviour
         return occupied;
     }
 
+    // This used to create a crop but now because its switched, it just holds the choice the player wants to use
     public void createTileLife(int choice){
         selectedChoice = choice;
         
     }
 
+    // This changes sprite
     private void changeSprite(Vector3Int gridPosition){
+        // Checks if age is less than or equal to how many sprites it has
         if(lifeOnTile[gridPosition].age<=lifeOnTile[gridPosition].tile.Length){
+            // Then changes the sprite to the index of age (sprite[age])
             life.SetTile(gridPosition, lifeOnTile[gridPosition].tile[lifeOnTile[gridPosition].age]);
         }
     }
 
+    //This removes the crop from the tile
     public void destroyCrop(Vector3Int crop){
         Destroy(lifeOnTile[crop]);
         life.SetTile(crop, null);
     }
 
+    // This changes the food the player chooses so it can feed an animal
     public void feedTileLife(FoodItem food){
         selectedFood = food;
     }
