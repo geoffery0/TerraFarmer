@@ -137,8 +137,10 @@ public class TileManager : MonoBehaviour
                 
             }
 
+
             // This block will do the age calculations
             // For the future this is where we would put logic for animal menu and stats when clicking them
+
             if(lifeOnTile[gridPosition] != null){
                 
                 // This is if the crop is a plant
